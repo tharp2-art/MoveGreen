@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1>MoveGreen</h1>
-    <p>Sustainable Urban Mobility Platform</p>
-  </div>
+  <router-view />
 </template>
 
 <script>
