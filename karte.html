@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveGreen - Karte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="map-section">
+            <div class="container">
+                <h1>Interaktive Karte</h1>
+                <div class="map-controls">
+                    <input type="text" id="search" placeholder="Ziel eingeben...">
+                    <button onclick="calculateRoute()">Route berechnen</button>
+                </div>
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Header laden
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // Karte initialisieren
+        let map = L.map('map').setView([48.1351, 11.5820], 13); // München als Startpunkt
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Marker für aktuellen Standort
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                
+                L.marker([lat, lng])
+                    .addTo(map)
+                    .bindPopup('Ihr Standort')
+                    .openPopup();
+                
+                map.setView([lat, lng], 13);
+            });
+        }
+
+        function calculateRoute() {
+            const search = document.getElementById('search').value;
+            // Hier können wir später die Routenberechnung implementieren
+            alert('Routenberechnung zu: ' + search);
+        }
+    </script>
+</body>
+</html>
