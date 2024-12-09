@@ -9,6 +9,7 @@ import Community from './pages/Community';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import CommunityPage from './pages/CommunityPage';
+import TicketsPage from './pages/TicketsPage';
 import './styles/App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/profil" element={<Profile />} />
             <Route path="/suche" element={<Search />} />
+            <Route path="/tickets" element={<TicketsPage />} />
           </Routes>
         </main>
         <Footer />

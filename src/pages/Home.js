@@ -9,6 +9,10 @@ function Home() {
     navigate('/karte');
   };
 
+  const handleTickets = () => {
+    navigate('/tickets');
+  };
+
   return (
     <div className="home">
       <section className="hero">
@@ -23,7 +27,7 @@ function Home() {
 
       <section className="features">
         <div className="container">
-          <div className="feature-card">
+          <div className="feature-card" onClick={handleTickets} style={{ cursor: 'pointer' }}>
             <i className="fas fa-ticket-alt fa-2x"></i>
             <h2>Billets und Abos</h2>
           </div>
