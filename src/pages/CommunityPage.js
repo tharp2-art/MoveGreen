@@ -54,69 +54,63 @@ const CommunityPage = () => {
 
   return (
     <div className="community-page">
-      <button className="create-post-btn">Beitrag erstellen</button>
-      <div className="activities-feed">
-        {posts.map(post => (
-          <div key={post.id} className="post">
-            <img src={post.profilePic} alt={post.username} className="profile-pic" />
-            <div className="post-content">
-              <div className="post-header">
-                <span className="username">{post.username}</span>
-                <span className="time-ago">{post.timeAgo}</span>
-              </div>
-              <p>{post.content}</p>
-              <div className="post-actions">
-                <span onClick={() => handleLike(post.id)} className="like">❤️ {post.likes}</span>
-                <span onClick={() => handleComment(post.id)} className="comment">💬 {post.comments}</span>
-                <span onClick={() => handleShare(post.id)} className="share">🔗 Teilen</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="friends-list">
-        <h3>Freunde</h3>
-        <div className="friends-container">
+      <aside className="sidebar">
+        <div className="section-title">Freunde</div>
+        <div className="friends-list">
           {friends.map(friend => (
-            <div key={friend.id} className="friend">
-              <img src={friend.profilePic} alt={friend.name} className="friend-pic" />
-              <span className="friend-name">{friend.name}</span>
+            <div key={friend.id} className="friend-item">
+              <img src={friend.profilePic} alt={friend.name} className="profile-pic" />
+              <span className="username">{friend.name}</span>
             </div>
           ))}
         </div>
-      </div>
+      </aside>
 
-      <div className="groups-list">
-        <h3>Gruppen</h3>
-        <div className="groups-container">
+      <main className="main-content">
+        <div className="create-post">
+          <button className="create-post-btn">Neuen Beitrag erstellen</button>
+        </div>
+        
+        <div className="activities-feed">
+          {posts.map(post => (
+            <article key={post.id} className="post">
+              <div className="post-header">
+                <img src={post.profilePic} alt={post.username} className="profile-pic" />
+                <div className="user-info">
+                  <div className="username">{post.username}</div>
+                  <div className="time-ago">{post.timeAgo}</div>
+                </div>
+              </div>
+              
+              <div className="post-content">{post.content}</div>
+              
+              <div className="post-actions">
+                <button className="action-button" onClick={() => handleLike(post.id)}>
+                  <span>👍</span> {post.likes} Likes
+                </button>
+                <button className="action-button" onClick={() => handleComment(post.id)}>
+                  <span>💬</span> {post.comments} Kommentare
+                </button>
+                <button className="action-button" onClick={() => handleShare(post.id)}>
+                  <span>📤</span> Teilen
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </main>
+
+      <aside className="sidebar">
+        <div className="section-title">Gruppen</div>
+        <div className="groups-list">
           {groups.map(group => (
-            <div key={group.id} className={`group ${group.active ? 'active' : ''}`}>
+            <div key={group.id} className="group-item">
+              <span className={`status-dot ${group.active ? 'active' : ''}`}></span>
               <span className="group-name">{group.name}</span>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="community-comparison">
-        <h3>Community Vergleich</h3>
-        <div className="comparison-stats">
-          <div className="stat">
-            <span>CO₂ Einsparung</span>
-            <div className="progress-bar">
-              <div className="progress" style={{ width: '70%' }}></div>
-            </div>
-            <span>70% besser als der Durchschnitt</span>
-          </div>
-          <div className="stat">
-            <span>Geplante Routen</span>
-            <div className="progress-bar">
-              <div className="progress" style={{ width: '50%' }}></div>
-            </div>
-            <span>50% mehr als der Durchschnitt</span>
-          </div>
-        </div>
-      </div>
+      </aside>
     </div>
   );
 };
