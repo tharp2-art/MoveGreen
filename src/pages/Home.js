@@ -47,6 +47,14 @@ function Home() {
             <i className="fas fa-car fa-2x"></i>
             <h2>Verkehr</h2>
           </div>
+          <div className="feature-card">
+            <i className="fas fa-gift fa-2x"></i>
+            <h2>Belohnungen</h2>
+          </div>
+          <div className="feature-card">
+            <i className="fas fa-chart-bar fa-2x"></i>
+            <h2>Mobilitätsstatistik</h2>
+          </div>
         </div>
       </section>
     </div>
