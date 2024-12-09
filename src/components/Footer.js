@@ -1,67 +1,82 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTwitter, FaFacebook, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import '../styles/Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section">
-          <h3>MoveGreen</h3>
-          <p>Nachhaltige Mobilität für eine bessere Zukunft</p>
-          <div className="social-links">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-instagram"></i>
-            </a>
+      <div className="footer__container">
+        {/* Über MoveGreen */}
+        <div className="footer__section">
+          <h3>Über MoveGreen</h3>
+          <p>MoveGreen – Nachhaltige Mobilität für die Schweiz.</p>
+          <div className="footer__social">
+            <a href="#" aria-label="Twitter"><FaTwitter /></a>
+            <a href="#" aria-label="Facebook"><FaFacebook /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram /></a>
           </div>
         </div>
-        
-        <div className="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/karte">Karte</Link></li>
-            <li><Link to="/explorer">Explorer</Link></li>
-            <li><Link to="/community">Community</Link></li>
+
+        {/* Navigation */}
+        <div className="footer__section">
+          <h3>Navigation</h3>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/karte">Karte</Link>
+            <Link to="/explorer">Explorer</Link>
+            <Link to="/community">Community</Link>
+          </nav>
+        </div>
+
+        {/* Kontakt */}
+        <div className="footer__section">
+          <h3>Kontakt</h3>
+          <ul className="footer__contact">
+            <li>
+              <FaEnvelope />
+              <a href="mailto:info@movegreen.ch">info@movegreen.ch</a>
+            </li>
+            <li>
+              <FaPhone />
+              <span>+41 31 123 45 67</span>
+            </li>
+            <li>
+              <FaMapMarkerAlt />
+              <span>Bern, Schweiz</span>
+            </li>
           </ul>
         </div>
-        
-        <div className="footer-section">
-          <h4>Ressourcen</h4>
-          <ul>
-            <li><Link to="/about">Über uns</Link></li>
-            <li><Link to="/contact">Kontakt</Link></li>
-            <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
-          </ul>
-        </div>
-        
-        <div className="footer-section">
-          <h4>Kontakt</h4>
-          <ul>
-            <li><i className="fas fa-envelope"></i> info@movegreen.de</li>
-            <li><i className="fas fa-phone"></i> +49 123 456789</li>
-            <li><i className="fas fa-map-marker-alt"></i> Berlin, Deutschland</li>
-          </ul>
+
+        {/* Newsletter */}
+        <div className="footer__section">
+          <h3>Newsletter</h3>
+          <form className="footer__newsletter" onSubmit={(e) => e.preventDefault()}>
+            <input 
+              type="email" 
+              placeholder="Ihre E-Mail-Adresse" 
+              aria-label="Newsletter E-Mail"
+            />
+            <button type="submit">Abonnieren</button>
+          </form>
         </div>
       </div>
-      
-      <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} MoveGreen. Alle Rechte vorbehalten.</p>
-        <div className="legal-links">
-          <Link to="/privacy">Datenschutz</Link>
-          <Link to="/terms">AGB</Link>
-          <Link to="/imprint">Impressum</Link>
+
+      {/* Footer Bottom */}
+      <div className="footer__bottom">
+        <div className="footer__bottom-container">
+          <div className="footer__legal">
+            <Link to="/datenschutz">Datenschutz</Link>
+            <Link to="/agb">AGB</Link>
+            <Link to="/impressum">Impressum</Link>
+          </div>
+          <p className="footer__copyright">
+            &copy; {new Date().getFullYear()} MoveGreen. Alle Rechte vorbehalten.
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
