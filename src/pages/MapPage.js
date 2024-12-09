@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/MapPage.css';
+import MapComponent from '../components/MapComponent';
 
 const MapPage = () => {
   // State variables
@@ -7,6 +7,7 @@ const MapPage = () => {
   const [endLocation, setEndLocation] = useState('');
   const [transportMode, setTransportMode] = useState(1); // Default to "Auto"
   const [selectedRoute, setSelectedRoute] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // Data for transport options
   const transportOptions = [
@@ -42,11 +43,10 @@ const MapPage = () => {
   };
 
   return (
-    <div className="content-wrapper">
+    <div className="map-page">
       {/* Left Sidebar */}
       <div className="left-sidebar">
         <div className="input-container">
-          <label htmlFor="start">Start</label>
           <input
             type="text"
             id="start"
@@ -56,7 +56,6 @@ const MapPage = () => {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="end">Ziel</label>
           <input
             type="text"
             id="end"
@@ -65,6 +64,10 @@ const MapPage = () => {
             placeholder="Zielpunkt eingeben"
           />
         </div>
+        <button className="calculate-route-button" onClick={() => setLoading(true)}>
+          Route berechnen
+          {loading && <span className="loading-dots">...</span>}
+        </button>
         <select
           className="transport-mode-select"
           value={transportMode}
@@ -103,13 +106,6 @@ const MapPage = () => {
         </div>
       </div>
 
-      {/* Map Container */}
-      <div className="map-container">
-        <h1>Statische Karte</h1>
-        <img src="/static-map.jpg" alt="Statische Karte" className="static-map" />
-        <p>Diese Karte zeigt die wichtigsten Punkte in Ihrer Umgebung.</p>
-      </div>
-
       {/* Right Sidebar */}
       <div className="right-sidebar">
         <h3>Routendetails</h3>
@@ -125,6 +121,8 @@ const MapPage = () => {
           </div>
         )}
       </div>
+
+      <MapComponent />
     </div>
   );
 };
