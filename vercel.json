@@ -4,6 +4,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
+<<<<<<< HEAD
       "config": {
         "distDir": "build",
         "installCommand": "npm install",
@@ -32,5 +33,13 @@
       "src": ".*",
       "dest": "/index.html"
     }
+=======
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+>>>>>>> 8b882167de41a624c2cfd9a06ac7fcc368894495
   ]
 }
