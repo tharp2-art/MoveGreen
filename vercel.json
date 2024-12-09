@@ -4,7 +4,6 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-<<<<<<< HEAD
       "config": {
         "distDir": "build",
         "installCommand": "npm install",
@@ -13,33 +12,7 @@
     }
   ],
   "routes": [
-    {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "^/favicon.ico",
-      "dest": "/favicon.ico"
-    },
-    {
-      "src": "^/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "^/logo192.png",
-      "dest": "/logo192.png"
-    },
-    {
-      "src": ".*",
-      "dest": "/index.html"
-    }
-=======
-      "config": { "distDir": "dist" }
-    }
-  ],
-  "routes": [
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
->>>>>>> 8b882167de41a624c2cfd9a06ac7fcc368894495
   ]
 }
