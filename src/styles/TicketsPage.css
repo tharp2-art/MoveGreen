@@ -1,22 +1,22 @@
 /* src/styles/TicketsPage.css */
 .tickets-page {
-  max-width: 1200px;
+  padding: var(--spacing-lg);
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .hero-section {
   text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #ff8c42 0%, #ff5733 100%);
-  border-radius: 15px;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: white;
-  margin-bottom: 40px;
+  border-radius: var(--border-radius-lg);
 }
 
 .hero-content h1 {
   font-size: 2.5em;
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-md);
 }
 
 .hero-content p {
@@ -24,140 +24,290 @@
   opacity: 0.9;
 }
 
-.tickets-section,
-.subscriptions-section {
-  margin-bottom: 60px;
+/* Tabs */
+.tabs-section {
+  margin-bottom: var(--spacing-xl);
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
-  color: #333;
+.tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
 }
 
-.tickets-grid,
-.subscriptions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 20px;
-}
-
-.ticket-card,
-.subscription-card {
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.tab {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  background: none;
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  cursor: pointer;
   position: relative;
 }
 
-.ticket-card:hover,
-.subscription-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.tab.active {
+  color: var(--primary-color);
+  font-weight: 500;
 }
 
-.ticket-header,
-.subscription-header {
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+/* Provider Cards */
+.provider-section {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.provider-card {
+  background: var(--background-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.provider-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.provider-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Combi-Abos */
+.combi-abos h2 {
   text-align: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  margin-bottom: var(--spacing-xl);
 }
 
-.ticket-header h3,
-.subscription-header h3 {
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 15px;
+.abo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.abo-card {
+  background: var(--background-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.abo-card.premium {
+  border: 2px solid var(--primary-color);
+}
+
+.abo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.savings-badge {
+  background-color: var(--success-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9em;
+  font-weight: 500;
 }
 
 .price {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
+  margin-bottom: var(--spacing-lg);
 }
 
 .amount {
   font-size: 2em;
-  font-weight: bold;
-  color: #ff5733;
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
-.duration,
-.interval {
-  color: #666;
-  font-size: 0.9em;
+.duration {
+  color: var(--text-secondary);
+  font-size: 1.1em;
+}
+
+.included-services,
+.features {
+  margin-bottom: var(--spacing-lg);
+}
+
+.included-services h4,
+.features h4 {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.included-services ul,
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.included-services li,
+.features li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-lg);
+  position: relative;
+}
+
+.included-services li::before,
+.features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success-color);
+}
+
+/* Tickets and Subscriptions */
+.tickets-grid,
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.ticket-card,
+.subscription-card {
+  background: var(--background-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.ticket-card h4,
+.subscription-card h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
 }
 
 .features-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: var(--spacing-lg) 0;
 }
 
 .features-list li {
-  padding: 10px 0;
-  color: #555;
+  padding: var(--spacing-xs) 0;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
+  gap: var(--spacing-sm);
 }
 
-.subscription-card .features-list li::before {
-  content: "✓";
-  margin-right: 10px;
-  color: #ff5733;
-  font-weight: bold;
+.features-list li::before {
+  content: '•';
+  color: var(--primary-color);
 }
 
 .buy-button,
 .subscribe-button {
   width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ff5733;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--primary-color);
   color: white;
-  font-size: 1.1em;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-normal);
 }
 
 .buy-button:hover,
 .subscribe-button:hover {
-  background-color: #ff8c42;
+  background-color: var(--primary-dark);
 }
 
-.recommended {
-  border: 2px solid #ff5733;
+/* Single Tickets and Rides */
+.single-tickets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
 }
 
-.recommended-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #ff5733;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
+.section-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-group h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  font-size: 1.5em;
+}
+
+.single-ticket-card {
+  background: var(--background-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.single-ticket-card h4 {
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.zones,
+.class,
+.valid-time,
+.additional {
+  color: var(--text-secondary);
   font-size: 0.9em;
 }
 
+.price-breakdown {
+  background: var(--background-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.price-breakdown div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+}
+
 @media (max-width: 768px) {
-  .tickets-grid,
-  .subscriptions-grid {
+  .tabs {
+    flex-wrap: wrap;
+  }
+  
+  .tab {
+    flex: 1 1 calc(50% - var(--spacing-sm));
+    text-align: center;
+  }
+  
+  .abo-grid {
     grid-template-columns: 1fr;
   }
   
-  .hero-section {
-    padding: 40px 20px;
-  }
-  
-  .hero-content h1 {
-    font-size: 2em;
+  .provider-header {
+    flex-direction: column;
+    text-align: center;
   }
 }

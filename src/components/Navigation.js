@@ -31,6 +31,11 @@ function Navigation() {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/pricing">
+              Preismodelle
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/profil">
               Profil
             </NavLink>

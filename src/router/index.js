@@ -1,27 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../pages/Home';
+import MapPage from '../pages/MapPage';
+import CommunityPage from '../pages/CommunityPage';
+import FavoritesPage from '../pages/FavoritesPage';
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/map',
-    name: 'Map',
-    component: () => import('../views/Map.vue')
-  },
-  {
-    path: '/community',
-    name: 'Community',
-    component: () => import('../views/Community.vue')
-  }
-]
+const AppRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
-
-export default router
+export default AppRouter;
