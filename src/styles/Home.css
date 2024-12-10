@@ -30,24 +30,18 @@
 }
 
 .hero .button-primary {
-  font-size: var(--font-size-lg);
-  padding: var(--spacing-md) var(--spacing-xl);
-  background: linear-gradient(45deg, #FF5722, #F4511E);
-  border: none;
-  border-radius: var(--border-radius-md);
+  background-color: #ff5733;
   color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
-  transition: all 0.3s ease;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.1em;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .hero .button-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5);
-  filter: brightness(1.1);
+  background-color: #ff8c42;
 }
 
 .hero .button-primary:active {
@@ -106,11 +100,6 @@
 
   .hero p {
     font-size: var(--font-size-md);
-  }
-
-  .hero .button-primary {
-    font-size: var(--font-size-md);
-    padding: var(--spacing-sm) var(--spacing-lg);
   }
 
   .features .container {

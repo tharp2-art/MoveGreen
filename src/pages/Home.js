@@ -19,7 +19,7 @@ function Home() {
         <div className="hero-content">
           <h1>Entdecken Sie nachhaltige Mobilität</h1>
           <p>Planen Sie Ihre Reisen umweltbewusst und effizient</p>
-          <button className="button-primary" onClick={handleRouteCalculation}>
+          <button className="button-primary" style={{ backgroundColor: 'orange' }} onClick={handleRouteCalculation}>
             Route berechnen
           </button>
         </div>
