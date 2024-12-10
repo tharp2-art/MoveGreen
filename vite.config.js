@@ -1,6 +1,9 @@
 export default {
-    build: {
-      outDir: "dist", // Ensure this directory is within your project
-      emptyOutDir: true
-    }
-  };
+  build: {
+    outDir: "dist", // Zielverzeichnis innerhalb des Projekts
+    emptyOutDir: true, // Löscht das Zielverzeichnis vor jedem Build
+    rollupOptions: {
+      external: ['mapbox-gl/dist/mapbox-gl.css'], // Behandle die CSS-Datei als extern
+    },
+  },
+};
