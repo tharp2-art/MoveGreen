@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import MapPage from './pages/MapPage';
 import Explorer from './pages/Explorer';
-import Community from './pages/Community';
+// import Community from './pages/Community'; // Entfernt, weil nicht verwendet
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import CommunityPage from './pages/CommunityPage';

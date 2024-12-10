@@ -12,9 +12,9 @@ const Footer = () => {
           <h3>Über MoveGreen</h3>
           <p>MoveGreen – Nachhaltige Mobilität für die Schweiz.</p>
           <div className="footer__social">
-            <a href="#" aria-label="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="Facebook"><FaFacebook /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://twitter.com" aria-label="Twitter"><FaTwitter /></a>
+            <a href="https://facebook.com" aria-label="Facebook"><FaFacebook /></a>
+            <a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a>
           </div>
         </div>
 

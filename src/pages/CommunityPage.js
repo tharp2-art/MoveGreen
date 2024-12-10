@@ -23,11 +23,13 @@ const CommunityPage = () => {
     }
   ]);
 
+  // eslint-disable-next-line no-unused-vars
   const [friends, setFriends] = useState([
     { id: 1, name: 'Alice', profilePic: 'https://via.placeholder.com/50' },
     { id: 2, name: 'Bob', profilePic: 'https://via.placeholder.com/50' }
   ]);
 
+  // eslint-disable-next-line no-unused-vars
   const [groups, setGroups] = useState([
     { id: 1, name: 'Velo Fans', active: true },
     { id: 2, name: 'Bus Enthusiasten', active: false }
@@ -43,12 +45,12 @@ const CommunityPage = () => {
   };
 
   const handleComment = (postId) => {
-    // Implement comment functionality
+    // eslint-disable-next-line no-console
     console.log('Comment on post', postId);
   };
 
   const handleShare = (postId) => {
-    // Implement share functionality
+    // eslint-disable-next-line no-console
     console.log('Share post', postId);
   };
 
