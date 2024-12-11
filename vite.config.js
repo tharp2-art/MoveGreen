@@ -1,9 +1,19 @@
-export default {
-  build: {
-    outDir: "dist", // Zielverzeichnis innerhalb des Projekts
-    emptyOutDir: true, // Löscht das Zielverzeichnis vor jedem Build
-    rollupOptions: {
-      external: ['mapbox-gl/dist/mapbox-gl.css'], // Behandle die CSS-Datei als extern
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // Setzt '@' auf den src-Ordner
     },
   },
-};
+  build: {
+    rollupOptions: {
+      external: [
+        'mapbox-gl/dist/mapbox-gl.css', // Externalisiere die Mapbox CSS
+      ],
+    },
+  },
+});
